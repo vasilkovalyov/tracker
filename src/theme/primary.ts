@@ -20,10 +20,12 @@ const theme = createTheme({
   palette: {
     primary: {
       main: colors.primary,
+      light: 'rgba(203, 82, 50, 0.50)',
       contrastText: colors.white,
     },
     secondary: {
       main: colors.secondary,
+      light: 'rgba(122, 77, 190, 0.50)',
       contrastText: colors.white,
     },
     success: {
