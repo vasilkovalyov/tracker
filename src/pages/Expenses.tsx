@@ -1,9 +1,10 @@
 import { Layout } from 'src/components'
-import { BlockExpenses } from '../blocks'
+import { BlockExpenses, BlockExpensesInfo } from '../blocks'
 
 function Expenses() {
   return (
     <Layout>
+      <BlockExpensesInfo />
       <BlockExpenses />
     </Layout>
   )
