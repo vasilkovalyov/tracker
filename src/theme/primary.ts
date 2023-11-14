@@ -31,9 +31,10 @@ const theme = createTheme({
       contrastText: colors.white,
     },
     info: {
-      main: colors.grey_dark,
+      dark: colors.grey_dark,
+      main: colors.grey,
       contrastText: colors.white,
-      light: colors.grey,
+      light: colors.grey_light,
     },
   },
   components: {
