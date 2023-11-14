@@ -4,6 +4,14 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 
 import { UserTransactionType } from './UserTransaction.type'
+import { styled } from '@mui/material/styles'
+
+const UserTransactionStandAlone = styled(Box)(({ theme }) => ({
+  padding: 10,
+  borderRadius: 10,
+  marginBottom: 16,
+  backgroundColor: theme.palette.info['light'],
+}))
 
 export default function UserTransaction({
   imageSrc,
@@ -11,9 +19,10 @@ export default function UserTransaction({
   subheading,
   cost,
   date,
+  isStandalone,
 }: UserTransactionType) {
-  return (
-    <Box className='user-transaction'>
+  function Body() {
+    return (
       <Grid container direction='row' width='100%' spacing={2}>
         <Grid item>
           <Avatar src={imageSrc || ''} alt={heading} />
@@ -41,6 +50,15 @@ export default function UserTransaction({
           </Box>
         </Grid>
       </Grid>
-    </Box>
-  )
+    )
+  }
+
+  if (isStandalone) {
+    return (
+      <UserTransactionStandAlone>
+        <Body />
+      </UserTransactionStandAlone>
+    )
+  }
+  return <Box className='user-transaction'></Box>
 }
