@@ -8,7 +8,7 @@ import { styled } from '@mui/material/styles'
 
 const UserTransactionStandAlone = styled(Box)(({ theme }) => ({
   padding: 10,
-  borderRadius: 10,
+  borderRadius: 21,
   marginBottom: 16,
   backgroundColor: theme.palette.info['light'],
 }))
@@ -23,7 +23,7 @@ export default function UserTransaction({
 }: UserTransactionType) {
   function Body() {
     return (
-      <Grid container direction='row' width='100%' spacing={2}>
+      <Grid container direction='row' width='100%' gap={2}>
         <Grid item>
           <Avatar src={imageSrc || ''} alt={heading} />
         </Grid>
@@ -60,5 +60,9 @@ export default function UserTransaction({
       </UserTransactionStandAlone>
     )
   }
-  return <Box className='user-transaction'></Box>
+  return (
+    <Box className='user-transaction'>
+      <Body />
+    </Box>
+  )
 }
