@@ -1,5 +1,7 @@
+import { Layout } from 'src/components'
+
 function Expenses() {
-  return <>Expenses</>
+  return <Layout>Expenses</Layout>
 }
 
 export default Expenses
