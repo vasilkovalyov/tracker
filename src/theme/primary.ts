@@ -127,7 +127,7 @@ theme.typography.body2 = {
 theme.typography.subtitle1 = {
   fontSize: 12,
   color: colors.grey,
-  fontWeight: 300,
+  fontWeight: 400,
   marginBottom: 16,
   fontFamily: 'Roboto, sans-serif',
 }
