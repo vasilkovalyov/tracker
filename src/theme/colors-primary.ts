@@ -7,6 +7,7 @@ const colors = {
   white: '#ffffff',
   primary: '#FF643B',
   secondary: '#8234F8',
+  blue_dark: '#2F3046',
 }
 
 export default colors

@@ -26,6 +26,7 @@ const theme = createTheme({
     secondary: {
       main: colors.secondary,
       light: 'rgba(122, 77, 190, 0.50)',
+      dark: colors.blue_dark,
       contrastText: colors.white,
     },
     success: {
