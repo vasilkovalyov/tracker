@@ -4,7 +4,7 @@ import { CarouselCreditCardsType } from './CarouselCreditCards.type'
 
 export default function CarouselCreditCards({ cards }: CarouselCreditCardsType) {
   return (
-    <Box className='carousel-credit-cards' height={220}>
+    <Box className='carousel-credit-cards' height={220} mb={2}>
       <Carousel
         settings={{
           height: 210,

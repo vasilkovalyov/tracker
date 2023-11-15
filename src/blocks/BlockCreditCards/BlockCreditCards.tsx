@@ -18,7 +18,7 @@ export default function BlockCreditCards() {
   ]
 
   return (
-    <Box className='block-credit-cards'>
+    <Box className='block-credit-cards' mb={4}>
       <CarouselCreditCards cards={cards} />
     </Box>
   )
