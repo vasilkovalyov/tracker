@@ -1,9 +1,10 @@
 import { Layout } from 'src/components'
-import { BlockTransactions } from '../blocks'
+import { BlockCreditCards, BlockTransactions } from '../blocks'
 
 function Home() {
   return (
     <Layout>
+      <BlockCreditCards />
       <BlockTransactions />
     </Layout>
   )
