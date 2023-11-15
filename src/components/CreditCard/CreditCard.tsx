@@ -24,10 +24,9 @@ const TypeCardLogo = styled(Box)(() => ({
   maxWidth: '48px',
 }))
 
-const CreditCardStyle = styled(Box)(({ theme }) => ({
+const CreditCardStyle = styled(Box)(() => ({
   padding: '24px 30px',
   borderRadius: 24,
-  backgroundColor: theme.palette.secondary['dark'],
 }))
 
 function getLogoType(type: TypeCard) {
@@ -36,11 +35,15 @@ function getLogoType(type: TypeCard) {
   return null
 }
 
-export default function CreditCard({ balance, cardNumber }: CreditCardType) {
+export default function CreditCard({
+  balance,
+  cardNumber,
+  themeColor = 'secondary.dark',
+}: CreditCardType) {
   const typeCard = getCardType(cardNumber)
 
   return (
-    <CreditCardStyle className='credit-card' position='relative'>
+    <CreditCardStyle className='credit-card' position='relative' sx={{ bgcolor: themeColor }}>
       <DotsButton variant='text' onClick={(e) => console.log(e)}>
         ...
       </DotsButton>
@@ -49,11 +52,9 @@ export default function CreditCard({ balance, cardNumber }: CreditCardType) {
           Total Balance
         </Typography>
       </Box>
-      <Box marginBottom={5}>
-        <Typography color='white' fontSize={30} fontWeight={700}>
-          ${balance || '0'}
-        </Typography>
-      </Box>
+      <Typography color='white' fontSize={30} fontWeight={700} marginBottom={6}>
+        ${balance || '0'}
+      </Typography>
       <Box>
         <Typography variant='h4' color='info.main' marginBottom={0.5}>
           {getSplitCardNumber(cardNumber)}
