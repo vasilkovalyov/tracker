@@ -1,0 +1,21 @@
+.carousel-credit-cards {
+  overflow: hidden;
+
+  .carousel {
+    height: 200px;
+
+    .swiper {
+      overflow: visible;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    .carousel__wrapper {
+      .swiper-wrapper {
+        overflow: visible;
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+    }
+  }
+}
