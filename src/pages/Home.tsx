@@ -3,7 +3,7 @@ import { BlockAnalytics, BlockCreditCards, BlockTransactions } from '../blocks'
 
 function Home() {
   return (
-    <Layout>
+    <Layout pageName='Home'>
       <BlockCreditCards />
       <BlockAnalytics />
       <BlockTransactions />

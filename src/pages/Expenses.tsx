@@ -3,7 +3,7 @@ import { BlockExpenses, BlockExpensesInfo } from '../blocks'
 
 function Expenses() {
   return (
-    <Layout>
+    <Layout pageName='Expenses'>
       <BlockExpensesInfo />
       <BlockExpenses />
     </Layout>
