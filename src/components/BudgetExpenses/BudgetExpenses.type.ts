@@ -1,4 +1,4 @@
 export type BudgetExpensesType = {
-  spend: string
-  budget: string
+  spend: number
+  budget: number
 }
