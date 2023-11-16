@@ -21,7 +21,7 @@ export default function BlockExpenses() {
             date='April 2022'
           />
         </Box>
-        <BudgetExpenses spend='$2,486' budget='$3,000' />
+        <BudgetExpenses spend={2486} budget={3000} />
       </BlockExpensesBody>
     </Box>
   )

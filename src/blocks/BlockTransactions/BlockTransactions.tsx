@@ -9,7 +9,7 @@ export default function BlockTransactions() {
       imageSrc: '',
       heading: 'Nike Super Store',
       subheading: 'Bank Account',
-      cost: '$952',
+      cost: 952,
       date: 'Fri, 05 April 2022',
     },
     {
@@ -17,7 +17,7 @@ export default function BlockTransactions() {
       imageSrc: '',
       heading: 'Puma Store',
       subheading: 'Bank Account',
-      cost: '$475',
+      cost: 475,
       date: 'Fri, 05 April 2022',
     },
   ]
