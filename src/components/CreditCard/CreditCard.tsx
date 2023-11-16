@@ -98,7 +98,7 @@ export default function CreditCard({
       <TypeCardLogo>{getLogoType(typeCard)}</TypeCardLogo>
       <Snackbar
         open={open}
-        autoHideDuration={113000}
+        autoHideDuration={3000}
         onClose={handleClose}
         anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
         sx={{ width: '100%', right: '0' }}
