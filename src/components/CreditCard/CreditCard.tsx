@@ -33,8 +33,8 @@ const CreditCardStyle = styled(Box)(() => ({
 }))
 
 function getLogoType(type: TypeCard) {
-  if (type === 'visa') return <img src='/public/visa.png' alt={type} width={48} />
-  if (type === 'mastercard') return <img src='/public/mastercard.png' alt={type} width={48} />
+  if (type === 'visa') return <img src='/visa.png' alt={type} width={48} />
+  if (type === 'mastercard') return <img src='/mastercard.png' alt={type} width={48} />
   return null
 }
 

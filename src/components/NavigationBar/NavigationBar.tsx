@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import cn from 'classnames'
 import { NavLink } from 'react-router-dom'
 
@@ -52,7 +51,6 @@ export default function NavigationBar() {
   return (
     <BottomNavigation
       className='bottom-navigation'
-      showLabels
       sx={{
         paddingY: 2,
         height: '90px',
@@ -60,10 +58,9 @@ export default function NavigationBar() {
       }}
     >
       {routes.map((route) => (
-        <Box className={cn('bottom-navigation__item')}>
+        <Box key={route.page} className={cn('bottom-navigation__item')}>
           <NavLink
             to={route.page}
-            key={route.page}
             className={cn('bottom-navigation__link', route.className)}
             {...(route.disabled && { disabled: true })}
           >
