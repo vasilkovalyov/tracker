@@ -1,27 +1,23 @@
-import { combineReducers } from 'redux';
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux'
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
 
-import { adminAuthSlice } from '../slices';
+import { adminAuthSlice, settingsSlice } from '../slices'
 
 const rootReducer = combineReducers({
   [adminAuthSlice.name]: adminAuthSlice.reducer,
-});
+  [settingsSlice.name]: settingsSlice.reducer,
+})
 
 export const makeStore = () =>
   configureStore({
     reducer: rootReducer,
-  });
+  })
 
-export type AppStore = ReturnType<typeof makeStore>;
-export type RootState = ReturnType<typeof rootReducer>;
-export type AppState = ReturnType<AppStore['getState']>;
-export type AppDispatch = AppStore['dispatch'];
+export type AppStore = ReturnType<typeof makeStore>
+export type RootState = ReturnType<typeof rootReducer>
+export type AppState = ReturnType<AppStore['getState']>
+export type AppDispatch = AppStore['dispatch']
 
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  AppState,
-  unknown,
-  Action<string>
->;
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, AppState, unknown, Action<string>>
 
-export const store = makeStore();
+export const store = makeStore()
