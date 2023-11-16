@@ -26,61 +26,54 @@ const BarStyle = styled(Box)(() => ({
 }))
 
 export default function ChartAnalytics({ data, activeBar }: ChartAnalyticsType) {
-  const getMaxValue = data.reduce((max, obj) => (obj.value > max.value ? obj : max), data[0]).value
+  const getMaxValue = data
+    ? data.reduce((max, obj) => (obj.value > max.value ? obj : max), data[0]).value
+    : 0
 
   return (
     <ChartAnalyticsStyle className='chart-analytics' display='flex' flexDirection='column'>
-      <Grid
-        container
-        justifyContent='space-between'
-        flexWrap='nowrap'
-        gap='20px'
-        height={126}
-        marginBottom={2}
-      >
-        {data.map((item, index) => (
-          <Grid key={item.id} item display='flex' flexDirection='column'>
-            <BarParentStyle>
+      {data ? (
+        <Grid
+          container
+          justifyContent='space-between'
+          flexWrap='nowrap'
+          gap='20px'
+          height={160}
+          marginBottom={2}
+        >
+          {data.map((item, index) => (
+            <Grid key={item.id} item display='flex' flexDirection='column'>
+              <BarParentStyle>
+                <Typography
+                  variant='subtitle1'
+                  fontSize={10}
+                  marginBottom={0.5}
+                  color={activeBar === index ? 'secondary' : ''}
+                >
+                  ${formatToNumber(item.value)}
+                </Typography>
+                <BarStyle
+                  bgcolor={activeBar === index ? 'secondary.main' : 'info.light'}
+                  height={`${getPercentage(item.value, getMaxValue)}%`}
+                />
+              </BarParentStyle>
               <Typography
                 variant='subtitle1'
-                fontSize={10}
-                marginBottom={0.5}
+                fontSize={13}
+                textAlign='center'
+                marginBottom={0}
                 color={activeBar === index ? 'secondary' : ''}
               >
-                ${formatToNumber(item.value)}
+                {item.legend}
               </Typography>
-              <BarStyle
-                bgcolor={activeBar === index ? 'secondary.main' : 'info.light'}
-                height={`${getPercentage(item.value, getMaxValue)}%`}
-              />
-            </BarParentStyle>
-            <Typography
-              variant='subtitle1'
-              fontSize={13}
-              textAlign='center'
-              marginBottom={0}
-              color={activeBar === index ? 'secondary' : ''}
-            >
-              {item.legend}
-            </Typography>
-          </Grid>
-        ))}
-      </Grid>
-      {/* <Grid container justifyContent='space-around' gap='20px' flexWrap='nowrap'>
-        {labels.map((label, index) => (
-          <Grid key={label} item width='32px'>
-            <Typography
-              variant='subtitle1'
-              fontSize={13}
-              textAlign='center'
-              marginBottom={0}
-              color={activeBar === index ? 'secondary' : ''}
-            >
-              {label}
-            </Typography>
-          </Grid>
-        ))}
-      </Grid> */}
+            </Grid>
+          ))}
+        </Grid>
+      ) : (
+        <Typography variant='h4' textAlign='center'>
+          No Analytics
+        </Typography>
+      )}
     </ChartAnalyticsStyle>
   )
 }
