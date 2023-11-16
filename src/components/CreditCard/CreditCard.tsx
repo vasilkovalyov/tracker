@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -5,6 +6,8 @@ import { CreditCardType } from './CreditCard.type'
 import { formatToBalanceCard, getCardType, getSplitCardNumber } from '@/src/utils/common'
 import { styled } from '@mui/material/styles'
 import { TypeCard } from '@/src/types/common'
+import Snackbar from '@mui/material/Snackbar'
+import Alert from '@mui/material/Alert'
 
 const DotsButton = styled(Button)(() => ({
   position: 'absolute',
@@ -41,7 +44,29 @@ export default function CreditCard({
   currency,
   themeColor = 'secondary.dark',
 }: CreditCardType) {
+  const [open, setOpen] = useState(false)
+
   const typeCard = getCardType(cardNumber)
+
+  const handleSaveToClipboard = () => {
+    if (!balance) return
+    navigator.clipboard
+      .writeText(cardNumber.toString())
+      .then(() => {
+        setOpen(true)
+      })
+      .catch((err) => {
+        console.error('Failed to copy: ', err)
+      })
+  }
+
+  const handleClose = (_?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return
+    }
+
+    setOpen(false)
+  }
 
   return (
     <CreditCardStyle className='credit-card' position='relative' sx={{ bgcolor: themeColor }}>
@@ -58,11 +83,30 @@ export default function CreditCard({
         {balance ? formatToBalanceCard(balance) : '0'}
       </Typography>
       <Box>
-        <Typography variant='h4' color='info.main' marginBottom={0.5}>
+        <Typography
+          variant='h4'
+          color='info.main'
+          marginBottom={0.5}
+          onClick={handleSaveToClipboard}
+          sx={{
+            cursor: 'pointer',
+          }}
+        >
           {getSplitCardNumber(cardNumber)}
         </Typography>
       </Box>
       <TypeCardLogo>{getLogoType(typeCard)}</TypeCardLogo>
+      <Snackbar
+        open={open}
+        autoHideDuration={113000}
+        onClose={handleClose}
+        anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
+        sx={{ width: '100%', right: '0' }}
+      >
+        <Alert onClose={handleClose} severity='success'>
+          Card copied.
+        </Alert>
+      </Snackbar>
     </CreditCardStyle>
   )
 }
