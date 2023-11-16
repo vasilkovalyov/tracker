@@ -9,12 +9,12 @@ export default function BlockExpensesInfo() {
   const balances: CompactCardBalanceType[] = [
     {
       id: '1',
-      balance: '$76,22.00',
+      balance: 762200,
       cardtLastNumbers: '1965',
     },
     {
       id: '2',
-      balance: '$70,22.00',
+      balance: 702200,
       cardtLastNumbers: '1966',
     },
   ]

@@ -2,7 +2,7 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
 import { CreditCardType } from './CreditCard.type'
-import { getCardType, getSplitCardNumber } from '@/src/utils/common'
+import { formatToBalanceCard, getCardType, getSplitCardNumber } from '@/src/utils/common'
 import { styled } from '@mui/material/styles'
 import { TypeCard } from '@/src/types/common'
 
@@ -53,7 +53,7 @@ export default function CreditCard({
         </Typography>
       </Box>
       <Typography color='white' fontSize={30} fontWeight={700} marginBottom={6}>
-        ${balance || '0'}
+        ${balance ? formatToBalanceCard(balance) : '0'}
       </Typography>
       <Box>
         <Typography variant='h4' color='info.main' marginBottom={0.5}>

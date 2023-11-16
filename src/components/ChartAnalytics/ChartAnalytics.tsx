@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { styled } from '@mui/system'
 
-import { formatToNumber, getPercentage } from '@/src/utils/common'
+import { formatToCurrency, getPercentage } from '@/src/utils/common'
 import { ChartAnalyticsType } from './ChartAnalytics.type'
 
 const ChartAnalyticsStyle = styled(Box)(() => ({
@@ -50,7 +50,7 @@ export default function ChartAnalytics({ data, activeBar }: ChartAnalyticsType) 
                   marginBottom={0.5}
                   color={activeBar === index ? 'secondary' : ''}
                 >
-                  ${formatToNumber(item.value)}
+                  ${formatToCurrency(item.value)}
                 </Typography>
                 <BarStyle
                   bgcolor={activeBar === index ? 'secondary.main' : 'info.light'}

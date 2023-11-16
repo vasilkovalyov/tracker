@@ -19,8 +19,18 @@ export function getCardType(number: string): TypeCard {
   return 'mastercard'
 }
 
-export const formatToNumber = (number: number) =>
-  number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+export const formatToCurrency = (number: number) => {
+  // number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  let formattedNumber = number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  formattedNumber = formattedNumber.replace(/(\d+)(\d{2})(\d{1})$/, '$1.$2.$3')
+  return formattedNumber
+}
+
+export const formatToBalanceCard = (number: number) => {
+  let formattedNumber = number.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',')
+  formattedNumber = formattedNumber.replace(/(\d+),(\d{2})$/, '$1.$2')
+  return formattedNumber
+}
 
 export const getPercentage = (value: number, total: number) => (value / total) * 100
 

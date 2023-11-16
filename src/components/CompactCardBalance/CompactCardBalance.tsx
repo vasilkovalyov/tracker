@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles'
 
 import CreditCardIcon from '@mui/icons-material/CreditCard'
 import { CompactCardBalanceType } from './CompactCardBalance.type'
+import { formatToBalanceCard } from '@/src/utils/common'
 
 const IconColorPrimaryStyles = styled(CreditCardIcon)(({ theme }) => ({
   color: theme.palette.primary.light,
@@ -54,7 +55,7 @@ export default function CompactCardBalance({
           Total Balance
         </Typography>
         <Typography color='white' fontSize={27} fontWeight={700}>
-          {balance}
+          {formatToBalanceCard(balance)}
         </Typography>
       </Box>
       <BankAccountStyles>

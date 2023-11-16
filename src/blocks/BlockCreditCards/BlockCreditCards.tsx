@@ -6,13 +6,13 @@ export default function BlockCreditCards() {
     {
       id: '1',
       cardNumber: '2544754537851023',
-      balance: '76,22.00',
+      balance: 762200,
       themeColor: 'secondary.dark',
     },
     {
       id: '2',
       cardNumber: '2544754537851024',
-      balance: '70,00.00',
+      balance: 700000,
       themeColor: 'secondary.main',
     },
   ]

@@ -2,7 +2,7 @@ import { ThemeType } from '@/src/types/common'
 
 export type CompactCardBalanceType = {
   id: string
-  balance: string
+  balance: number
   cardtLastNumbers: string
   theme?: ThemeType
 }

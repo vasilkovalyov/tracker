@@ -1,6 +1,6 @@
 export type CreditCardType = {
   id: string
-  balance?: string
+  balance?: number
   cardNumber: string
   themeColor?: string
 }

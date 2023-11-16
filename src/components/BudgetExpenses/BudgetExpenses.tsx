@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 
 import { BudgetExpensesType } from './BudgetExpenses.type'
-import { formatToNumber, getPercentOnNumber } from '@/src/utils/common'
+import { formatToCurrency, getPercentOnNumber } from '@/src/utils/common'
 import { styled } from '@mui/material/styles'
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress'
 
@@ -27,13 +27,13 @@ export default function BudgetExpenses({ spend, budget }: BudgetExpensesType) {
         <Grid item>
           <Typography variant='body1'>Total Spend</Typography>
           <Typography variant='h4' color='success.main' marginBottom={0}>
-            ${formatToNumber(spend)}
+            ${formatToCurrency(spend)}
           </Typography>
         </Grid>
         <Grid item>
           <Typography variant='body1'>Total Budget</Typography>
           <Typography variant='h4' marginBottom={0}>
-            ${formatToNumber(budget)}
+            ${formatToCurrency(budget)}
           </Typography>
         </Grid>
         <Grid item marginLeft='auto'>
