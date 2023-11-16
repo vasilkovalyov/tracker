@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography'
 
 import { UserTransactionType } from './UserTransaction.type'
 import { styled } from '@mui/material/styles'
+import { formatToNumber } from '@/src/utils/common'
 
 const UserTransactionStandAlone = styled(Box)(({ theme }) => ({
   padding: 10,
@@ -41,7 +42,7 @@ export default function UserTransaction({
           <Box textAlign='right'>
             {cost && (
               <Typography variant='h4' marginBottom={0.5} color='success.main'>
-                {cost}
+                ${formatToNumber(cost)}
               </Typography>
             )}
             <Typography variant='subtitle1' marginBottom={0}>
