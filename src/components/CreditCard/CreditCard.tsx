@@ -38,6 +38,7 @@ function getLogoType(type: TypeCard) {
 export default function CreditCard({
   balance,
   cardNumber,
+  currency,
   themeColor = 'secondary.dark',
 }: CreditCardType) {
   const typeCard = getCardType(cardNumber)
@@ -53,7 +54,8 @@ export default function CreditCard({
         </Typography>
       </Box>
       <Typography color='white' fontSize={30} fontWeight={700} marginBottom={6}>
-        ${balance ? formatToBalanceCard(balance) : '0'}
+        {currency}
+        {balance ? formatToBalanceCard(balance) : '0'}
       </Typography>
       <Box>
         <Typography variant='h4' color='info.main' marginBottom={0.5}>

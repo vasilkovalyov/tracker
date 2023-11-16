@@ -21,6 +21,7 @@ export default function UserTransaction({
   cost,
   date,
   isStandalone,
+  currency,
 }: UserTransactionType) {
   function Body() {
     return (
@@ -42,7 +43,8 @@ export default function UserTransaction({
           <Box textAlign='right'>
             {cost && (
               <Typography variant='h4' marginBottom={0.5} color='success.main'>
-                ${formatToCurrency(cost)}
+                {currency}
+                {formatToCurrency(cost)}
               </Typography>
             )}
             <Typography variant='subtitle1' marginBottom={0}>
@@ -61,9 +63,6 @@ export default function UserTransaction({
       </UserTransactionStandAlone>
     )
   }
-  return (
-    <Box className='user-transaction'>
-      <Body />
-    </Box>
-  )
+
+  return <Body />
 }

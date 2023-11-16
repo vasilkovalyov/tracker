@@ -2,7 +2,11 @@ import Box from '@mui/material/Box'
 import { CreditCard, Carousel } from '@/src/components'
 import { CarouselCreditCardsType } from './CarouselCreditCards.type'
 
+import { useAppSelector } from '@/src/redux/hooks'
+
 export default function CarouselCreditCards({ cards }: CarouselCreditCardsType) {
+  const { currency } = useAppSelector((store) => store.settingsSlice.settings)
+
   return (
     <Box className='carousel-credit-cards' height={220} mb={2}>
       <Carousel
@@ -25,7 +29,7 @@ export default function CarouselCreditCards({ cards }: CarouselCreditCardsType) 
           },
         }}
         slides={cards.map((card) => (
-          <CreditCard key={card.id} {...card} />
+          <CreditCard key={card.id} {...card} currency={currency} />
         ))}
       />
     </Box>

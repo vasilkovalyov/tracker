@@ -25,6 +25,7 @@ export default function CompactCardBalance({
   balance,
   cardtLastNumbers,
   theme = 'primary',
+  currency,
 }: CompactCardBalanceType) {
   const stars = '****'
 
@@ -55,6 +56,7 @@ export default function CompactCardBalance({
           Total Balance
         </Typography>
         <Typography color='white' fontSize={27} fontWeight={700}>
+          {currency}
           {formatToBalanceCard(balance)}
         </Typography>
       </Box>

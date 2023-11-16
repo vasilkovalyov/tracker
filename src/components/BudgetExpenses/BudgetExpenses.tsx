@@ -18,7 +18,7 @@ const BorderLinearProgress = styled(LinearProgress)(() => ({
   },
 }))
 
-export default function BudgetExpenses({ spend, budget }: BudgetExpensesType) {
+export default function BudgetExpenses({ spend, budget, currency }: BudgetExpensesType) {
   const percent = getPercentOnNumber(spend, budget)
 
   return (
@@ -27,13 +27,15 @@ export default function BudgetExpenses({ spend, budget }: BudgetExpensesType) {
         <Grid item>
           <Typography variant='body1'>Total Spend</Typography>
           <Typography variant='h4' color='success.main' marginBottom={0}>
-            ${formatToCurrency(spend)}
+            {currency}
+            {formatToCurrency(spend)}
           </Typography>
         </Grid>
         <Grid item>
           <Typography variant='body1'>Total Budget</Typography>
           <Typography variant='h4' marginBottom={0}>
-            ${formatToCurrency(budget)}
+            {currency}
+            {formatToCurrency(budget)}
           </Typography>
         </Grid>
         <Grid item marginLeft='auto'>

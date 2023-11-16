@@ -25,7 +25,7 @@ const BarStyle = styled(Box)(() => ({
   borderRadius: '6px 6px 0 0',
 }))
 
-export default function ChartAnalytics({ data, activeBar }: ChartAnalyticsType) {
+export default function ChartAnalytics({ data, activeBar, currency }: ChartAnalyticsType) {
   const getMaxValue = data
     ? data.reduce((max, obj) => (obj.value > max.value ? obj : max), data[0]).value
     : 0
@@ -50,7 +50,8 @@ export default function ChartAnalytics({ data, activeBar }: ChartAnalyticsType) 
                   marginBottom={0.5}
                   color={activeBar === index ? 'secondary' : ''}
                 >
-                  ${formatToCurrency(item.value)}
+                  {currency}
+                  {formatToCurrency(item.value)}
                 </Typography>
                 <BarStyle
                   bgcolor={activeBar === index ? 'secondary.main' : 'info.light'}

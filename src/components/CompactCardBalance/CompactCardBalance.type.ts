@@ -5,4 +5,5 @@ export type CompactCardBalanceType = {
   balance: number
   cardtLastNumbers: string
   theme?: ThemeType
+  currency?: string
 }

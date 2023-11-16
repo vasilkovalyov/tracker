@@ -7,6 +7,8 @@ import { BlockHeading, ChartAnalytics } from '@/src/components'
 import { ChartAnalyticsBar } from '@/src/components/ChartAnalytics'
 import { generateYears } from '@/src/utils/common'
 
+import { useAppSelector } from '@/src/redux/hooks'
+
 const chartData: Record<number, ChartAnalyticsBar[]> = {
   2023: [
     {
@@ -72,6 +74,8 @@ const chartData: Record<number, ChartAnalyticsBar[]> = {
 const years = generateYears(2010)
 
 export default function BlockAnalytics() {
+  const { currency } = useAppSelector((store) => store.settingsSlice.settings)
+
   const [year, setYear] = useState<number>(new Date().getFullYear())
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -97,7 +101,7 @@ export default function BlockAnalytics() {
           ))}
         </Select>
       </BlockHeading>
-      <ChartAnalytics data={chartData[year]} activeBar={2} />
+      <ChartAnalytics data={chartData[year]} activeBar={2} currency={currency} />
     </Box>
   )
 }

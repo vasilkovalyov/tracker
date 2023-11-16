@@ -6,4 +6,5 @@ export type UserTransactionType = {
   cost?: number
   date: string
   isStandalone?: boolean
+  currency?: string
 }
