@@ -4,9 +4,9 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { BlockHeadingType } from './BlockHeading.type'
 
-export default function BlockHeading({ heading, linkPath }: BlockHeadingType) {
+export default function BlockHeading({ heading, linkPath, children }: BlockHeadingType) {
   return (
-    <Grid container alignItems='flex-start' justifyContent='space-between' marginBottom={3}>
+    <Grid container alignItems='center' justifyContent='space-between' marginBottom={3}>
       <Grid item>
         <Typography variant='h2' marginBottom={0}>
           {heading}
@@ -19,6 +19,11 @@ export default function BlockHeading({ heading, linkPath }: BlockHeadingType) {
               View All
             </Typography>
           </Link>
+        </Grid>
+      )}
+      {children && (
+        <Grid item paddingTop={0.5}>
+          {children}
         </Grid>
       )}
     </Grid>
