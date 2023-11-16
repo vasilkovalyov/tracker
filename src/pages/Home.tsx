@@ -1,10 +1,11 @@
 import { Layout } from 'src/components'
-import { BlockCreditCards, BlockTransactions } from '../blocks'
+import { BlockAnalytics, BlockCreditCards, BlockTransactions } from '../blocks'
 
 function Home() {
   return (
     <Layout>
       <BlockCreditCards />
+      <BlockAnalytics />
       <BlockTransactions />
     </Layout>
   )
