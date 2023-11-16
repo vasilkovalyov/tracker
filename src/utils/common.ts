@@ -18,3 +18,8 @@ export function getCardType(number: string): TypeCard {
   if (number.match(re) != null) return 'mastercard'
   return 'mastercard'
 }
+
+export const formatToNumber = (number: number) =>
+  number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
+export const getPercentage = (value: number, total: number) => (value / total) * 100
