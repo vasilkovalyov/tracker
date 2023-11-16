@@ -1,64 +1,76 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react'
+import cn from 'classnames'
+import { NavLink } from 'react-router-dom'
 
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import { PageEnum } from 'src/constants/page-routes'
+import BottomNavigation from '@mui/material/BottomNavigation'
 
-import HomeIcon from '@mui/icons-material/Home';
-import CreditCardIcon from '@mui/icons-material/CreditCard';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import SettingsIcon from '@mui/icons-material/Settings';
+import Box from '@mui/material/Box'
+import { IconHome, IconCard, IconCalendar, IconPlus, IconSetting } from '../Icons'
 
-import { PageEnum } from '../../constants/page-routes';
+type RouteType = {
+  page: PageEnum
+  value: number
+  icon: JSX.Element
+  className?: string
+  disabled?: boolean
+}
 
-const routes: { page: PageEnum; value: number; icon: JSX.Element }[] = [
+const routes: RouteType[] = [
   {
     page: PageEnum.Home,
-    icon: <HomeIcon />,
+    icon: <IconHome color='#A3A3A3' />,
     value: 0,
   },
   {
     page: PageEnum.Expenses,
-    icon: <CreditCardIcon />,
+    icon: <IconCard color='#A3A3A3' />,
     value: 1,
   },
   {
     page: PageEnum.Add,
-    icon: <AddCircleIcon />,
+    icon: <IconPlus color='#A3A3A3' />,
     value: 2,
+    className: 'add',
+    disabled: true,
   },
   {
     page: PageEnum.Calendar,
-    icon: <CalendarTodayIcon />,
+    icon: <IconCalendar color='#A3A3A3' />,
     value: 3,
+    disabled: true,
   },
   {
     page: PageEnum.Settings,
-    icon: <SettingsIcon />,
+    icon: <IconSetting color='#A3A3A3' />,
     value: 4,
+    disabled: true,
   },
-];
+]
 
 export default function NavigationBar() {
-  const [navigatePage, setNavigatePage] = useState<number>(0);
-  const navigate = useNavigate();
-
   return (
     <BottomNavigation
+      className='bottom-navigation'
       showLabels
-      value={navigatePage}
-      onChange={(_, newValue) => {
-        setNavigatePage(newValue);
+      sx={{
+        paddingY: 2,
+        height: '90px',
+        backgroundColor: 'white',
       }}
     >
       {routes.map((route) => (
-        <BottomNavigationAction
-          key={route.page}
-          icon={route.icon}
-          onClick={() => navigate(route.page)}
-        />
+        <Box className={cn('bottom-navigation__item')}>
+          <NavLink
+            to={route.page}
+            key={route.page}
+            className={cn('bottom-navigation__link', route.className)}
+            {...(route.disabled && { disabled: true })}
+          >
+            {route.icon}
+          </NavLink>
+        </Box>
       ))}
     </BottomNavigation>
-  );
+  )
 }
