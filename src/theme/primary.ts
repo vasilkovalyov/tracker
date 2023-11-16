@@ -43,20 +43,39 @@ const theme = createTheme({
   components: {
     MuiSelect: {
       styleOverrides: {
+        root: {
+          margin: 0,
+          border: 'none',
+          ':after': {
+            display: 'none',
+          },
+          ':before': {
+            display: 'none',
+          },
+        },
+        nativeInput: {
+          height: '100%',
+        },
+        filled: {
+          border: 'none',
+        },
+        icon: {
+          color: colors.white,
+        },
+        standard: {
+          border: 'none',
+        },
         select: {
           width: '100%',
+          height: '6px',
+          paddingTop: '8px',
+          paddingBottom: '10px',
+          paddingLeft: '8px',
+          fontSize: '13px',
           backgroundColor: colors.primary,
-          marginTop: 0,
-          height: 20,
-          paddingTop: 8,
-          paddingBottom: 8,
-          paddingLeft: 20,
-          paddingRight: 20,
-          borderRadius: 20,
-          overflow: 'hidden',
-          borderWidth: 2,
-          borderStyle: 'solid',
-          borderColor: 'transparent',
+          color: colors.white,
+          borderRadius: '12px',
+          borderColor: colors.primary,
         },
       },
     },

@@ -23,3 +23,11 @@ export const formatToNumber = (number: number) =>
   number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export const getPercentage = (value: number, total: number) => (value / total) * 100
+
+export function generateYears(startYear: number, endYear: number = new Date().getFullYear()) {
+  const years = []
+  for (let year = startYear; year <= endYear; year++) {
+    years.push(year)
+  }
+  return years
+}
