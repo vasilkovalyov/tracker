@@ -2,7 +2,6 @@ import cn from 'classnames'
 import { NavLink } from 'react-router-dom'
 
 import { PageEnum } from 'src/constants/page-routes'
-import BottomNavigation from '@mui/material/BottomNavigation'
 
 import Box from '@mui/material/Box'
 import { IconHome, IconCard, IconCalendar, IconPlus, IconSetting } from '../Icons'
