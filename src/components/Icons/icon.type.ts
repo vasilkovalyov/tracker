@@ -1,4 +1,4 @@
 export type IconType = {
-  color: string
+  color?: string
   className?: string
 }
