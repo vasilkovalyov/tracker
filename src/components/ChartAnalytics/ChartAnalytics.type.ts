@@ -1,6 +1,5 @@
 export type ChartAnalyticsType = {
   data: ChartAnalyticsBar[]
-  activeBar?: number
   currency?: string
 }
 

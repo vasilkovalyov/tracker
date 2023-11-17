@@ -25,10 +25,12 @@ const BarStyle = styled(Box)(() => ({
   borderRadius: '6px 6px 0 0',
 }))
 
-export default function ChartAnalytics({ data, activeBar, currency }: ChartAnalyticsType) {
+export default function ChartAnalytics({ data, currency }: ChartAnalyticsType) {
   const getMaxValue = data
     ? data.reduce((max, obj) => (obj.value > max.value ? obj : max), data[0]).value
     : 0
+
+  const isMaxValue = (value: number) => value === getMaxValue
 
   return (
     <ChartAnalyticsStyle className='chart-analytics' display='flex' flexDirection='column'>
@@ -41,20 +43,20 @@ export default function ChartAnalytics({ data, activeBar, currency }: ChartAnaly
           height={160}
           marginBottom={2}
         >
-          {data.map((item, index) => (
+          {data.map((item) => (
             <Grid key={item.id} item display='flex' flexDirection='column'>
               <BarParentStyle>
                 <Typography
                   variant='subtitle1'
                   fontSize={10}
                   marginBottom={0.5}
-                  color={activeBar === index ? 'secondary' : ''}
+                  color={isMaxValue(item.value) ? 'secondary' : ''}
                 >
                   {currency}
                   {formatToCurrency(item.value)}
                 </Typography>
                 <BarStyle
-                  bgcolor={activeBar === index ? 'secondary.main' : 'info.light'}
+                  bgcolor={isMaxValue(item.value) ? 'secondary.main' : 'info.light'}
                   height={`${getPercentage(item.value, getMaxValue)}%`}
                 />
               </BarParentStyle>
@@ -63,7 +65,7 @@ export default function ChartAnalytics({ data, activeBar, currency }: ChartAnaly
                 fontSize={13}
                 textAlign='center'
                 marginBottom={0}
-                color={activeBar === index ? 'secondary' : ''}
+                color={isMaxValue(item.value) ? 'secondary' : ''}
               >
                 {item.legend}
               </Typography>

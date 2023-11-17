@@ -55,12 +55,12 @@ const chartData: Record<number, ChartAnalyticsBar[]> = {
     },
     {
       id: '2',
-      value: 3214,
+      value: 7040,
       legend: 'Feb',
     },
     {
       id: '3',
-      value: 7040,
+      value: 2040,
       legend: 'Mar',
     },
     {
@@ -101,7 +101,7 @@ export default function BlockAnalytics() {
           ))}
         </Select>
       </BlockHeading>
-      <ChartAnalytics data={chartData[year]} activeBar={2} currency={currency} />
+      <ChartAnalytics data={chartData[year]} currency={currency} />
     </Box>
   )
 }
