@@ -6,6 +6,7 @@ import BottomNavigation from '@mui/material/BottomNavigation'
 
 import Box from '@mui/material/Box'
 import { IconHome, IconCard, IconCalendar, IconPlus, IconSetting } from '../Icons'
+import Stack from '@mui/material/Stack'
 
 type RouteType = {
   page: PageEnum
@@ -49,25 +50,27 @@ const routes: RouteType[] = [
 
 export default function NavigationBar() {
   return (
-    <BottomNavigation
+    <Box
       className='bottom-navigation'
       sx={{
-        paddingY: 2,
+        paddingY: '16px',
         height: '90px',
         backgroundColor: 'white',
       }}
     >
-      {routes.map((route) => (
-        <Box key={route.page} className={cn('bottom-navigation__item')}>
-          <NavLink
-            to={route.page}
-            className={cn('bottom-navigation__link', route.className)}
-            {...(route.disabled && { disabled: true })}
-          >
-            {route.icon}
-          </NavLink>
-        </Box>
-      ))}
-    </BottomNavigation>
+      <Stack direction='row'>
+        {routes.map((route) => (
+          <Box key={route.page} className={cn('bottom-navigation__item')}>
+            <NavLink
+              to={route.page}
+              className={cn('bottom-navigation__link', route.className)}
+              {...(route.disabled && { disabled: true })}
+            >
+              {route.icon}
+            </NavLink>
+          </Box>
+        ))}
+      </Stack>
+    </Box>
   )
 }

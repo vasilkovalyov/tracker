@@ -7,8 +7,7 @@ export const getPercentOnNumber = (spend: number, total: number, round: number =
 
 export const getSplitCardNumber = (cardNumber: string): string => {
   const regex = /(\d{4})/g
-  let parts = cardNumber.match(regex)
-  return parts?.join(' ') || ''
+  return cardNumber.match(regex)?.join(' ') || ' '
 }
 
 export function getCardType(number: string): TypeCard {
