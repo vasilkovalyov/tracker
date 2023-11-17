@@ -2,7 +2,7 @@ import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import { Typography } from '@mui/material'
 
-import { CompactCardBalance } from '@/src/components'
+import { CalenarEventType, CompactCardBalance, WeekCalendar } from '@/src/components'
 import { CompactCardBalanceType } from '@/src/components/CompactCardBalance'
 
 import { useAppSelector } from '@/src/redux/hooks'
@@ -20,11 +20,37 @@ const balances: CompactCardBalanceType[] = [
   },
 ]
 
+const events: CalenarEventType[] = [
+  {
+    id: '1',
+    date: '2023-11-17',
+    events: [100, 40, 600],
+  },
+  {
+    id: '2',
+    date: '2023-11-14',
+    events: [502, 940, 600],
+  },
+  {
+    id: '3',
+    date: '2023-11-20',
+    events: [10, 630],
+  },
+  {
+    id: '4',
+    date: '2023-11-25',
+    events: [100, 40, 600],
+  },
+]
+
 export default function BlockExpensesInfo() {
   const { currency } = useAppSelector((store) => store.settingsSlice.settings)
 
   return (
     <Box className='block-expenses-info' marginBottom={2}>
+      <Box marginBottom={2.5}>
+        <WeekCalendar events={events} />
+      </Box>
       {balances.length ? (
         <Grid container columnSpacing={2.5}>
           {balances.map((balance, index) => (
