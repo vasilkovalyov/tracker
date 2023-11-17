@@ -64,7 +64,7 @@ export default function BlockExpensesInfo() {
           ))}
         </Grid>
       ) : (
-        <Typography>No Balances</Typography>
+        <Typography variant='h5'>No Balance</Typography>
       )}
     </Box>
   )

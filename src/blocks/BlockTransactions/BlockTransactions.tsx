@@ -29,9 +29,7 @@ export default function BlockTransactions() {
   return (
     <Box className='block-transactions'>
       <BlockHeading heading='Transactions' linkPath='/' />
-      {!transactions.length ? (
-        <Typography variant='h4'>No Transactions</Typography>
-      ) : (
+      {transactions.length ? (
         <Box>
           {transactions.map((transaction) => (
             <UserTransaction
@@ -42,6 +40,10 @@ export default function BlockTransactions() {
             />
           ))}
         </Box>
+      ) : (
+        <Typography variant='h4' textAlign='center'>
+          No Transactions
+        </Typography>
       )}
     </Box>
   )

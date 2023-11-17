@@ -1,11 +1,13 @@
 import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import { styled } from '@mui/material/styles'
+
 import {
   BlockHeading,
   UserTransaction,
   BudgetExpenses,
   UserTransactionType,
 } from '@/src/components'
-import { styled } from '@mui/material/styles'
 
 import { useAppSelector } from '@/src/redux/hooks'
 
@@ -15,11 +17,18 @@ const BlockExpensesBody = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.info['light'],
 }))
 
-const expences: UserTransactionType = {
+type ExpencesType = UserTransactionType & {
+  spend?: number
+  budget?: number
+}
+
+const expences: ExpencesType = {
   id: '1',
   heading: 'Nike Super Store',
   subheading: 'Bank Account',
   date: 'April 2022',
+  spend: 2486,
+  budget: 3000,
 }
 
 export default function BlockExpenses() {
@@ -28,12 +37,18 @@ export default function BlockExpenses() {
   return (
     <Box className='block-expences'>
       <BlockHeading heading='Expences' linkPath='/' />
-      <BlockExpensesBody>
-        <Box marginBottom={3}>
-          <UserTransaction {...expences} currency={currency} />
-        </Box>
-        <BudgetExpenses spend={2486} budget={3000} currency={currency} />
-      </BlockExpensesBody>
+      {expences ? (
+        <BlockExpensesBody>
+          <Box marginBottom={3}>
+            <UserTransaction {...expences} currency={currency} />
+          </Box>
+          <BudgetExpenses spend={2486} budget={3000} currency={currency} />
+        </BlockExpensesBody>
+      ) : (
+        <Typography variant='h4' textAlign='center'>
+          No Expences
+        </Typography>
+      )}
     </Box>
   )
 }
