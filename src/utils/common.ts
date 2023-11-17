@@ -19,7 +19,6 @@ export function getCardType(number: string): TypeCard {
 }
 
 export const formatToCurrency = (number: number) => {
-  // number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   let formattedNumber = number.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
   formattedNumber = formattedNumber.replace(/(\d+)(\d{2})(\d{1})$/, '$1.$2.$3')
   return formattedNumber

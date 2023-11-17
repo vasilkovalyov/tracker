@@ -69,9 +69,7 @@ export default function CompactCardBalance({
             Bank Account
           </Typography>
           <Typography variant='subtitle2'>
-            {stars}
-            {stars}
-            {cardtLastNumbers}
+            {stars} {'  '} {stars} {'  '} {cardtLastNumbers}
           </Typography>
         </Box>
       </BankAccountStyles>

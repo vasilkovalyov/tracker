@@ -19,8 +19,6 @@ export default function Carousel({
   const navigationPrevRef = useRef(null)
   const navigationNextRef = useRef(null)
 
-  console.log('settings', settings)
-
   return (
     <div className={cn('carousel', className)}>
       <div className='carousel__wrapper'>
