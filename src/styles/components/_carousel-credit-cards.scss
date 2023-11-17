@@ -10,6 +10,19 @@
       padding-bottom: 30px;
     }
 
+    .credit-card {
+      > * {
+        transition: 0.3s opacity linear;
+      }
+    }
+
+    .swiper-slide-next,
+    .swiper-slide-prev {
+      .credit-card > * {
+        opacity: 0;
+      }
+    }
+
     .carousel__wrapper {
       .swiper-wrapper {
         overflow: visible;

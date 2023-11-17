@@ -8,13 +8,14 @@ export default function CarouselCreditCards({ cards }: CarouselCreditCardsType) 
   const { currency } = useAppSelector((store) => store.settingsSlice.settings)
 
   return (
-    <Box className='carousel-credit-cards' height={220} mb={2}>
+    <Box className='carousel-credit-cards' height={280}>
       <Carousel
         settings={{
           height: 210,
-          spaceBetween: 60,
+          spaceBetween: 0,
           centeredSlides: true,
-          slidesPerView: 'auto',
+          slidesPerView: 1,
+          initialSlide: cards.length,
           effect: 'coverflow',
           direction: 'vertical',
           navigation: false,
@@ -22,8 +23,8 @@ export default function CarouselCreditCards({ cards }: CarouselCreditCardsType) 
           loop: false,
           coverflowEffect: {
             rotate: 0,
-            stretch: 110,
-            depth: 300,
+            stretch: 80,
+            depth: 360,
             modifier: 1,
             slideShadows: false,
           },
